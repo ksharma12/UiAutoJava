@@ -16,32 +16,10 @@ public class SeleniumOperations extends WaitOperations{
     List<WebElement> elements;
     WebDriver driver ;
     Actions actions;
-    public SeleniumOperations(WebDriver driver){
+    public SeleniumOperations(WebDriver driver) {
         super(driver);
         this.driver = driver;
         this.actions = new Actions(driver);
-    }
-    public WebElement findElement(By locator){
-        if (element == null){
-            try{
-                element = driver.findElement(locator);
-                System.out.println("Successfully find element: "+element);
-            }catch (Exception e){
-                e.printStackTrace();
-            }
-        }
-        return element;
-    }
-    public List<WebElement> findElements(By locator){
-        if (elements == null){
-            try{
-                elements = driver.findElements(locator);
-                System.out.println("Successfully find elements: "+elements);
-            }catch (Exception e){
-                e.printStackTrace();
-            }
-        }
-        return elements;
     }
     public void getUrl(String url){
         try{
@@ -51,7 +29,7 @@ public class SeleniumOperations extends WaitOperations{
             e.printStackTrace();
         }
     }
-    public WebElement click(By locator){
+    public WebElement click(String locator){
         if (elements == null){
             try{
                 element  = findElement(locator);
@@ -74,7 +52,7 @@ public class SeleniumOperations extends WaitOperations{
         }
         return actions;
     }
-    public Actions clickActionWebElement(By locator){
+    public Actions clickActionWebElement(String locator){
         if (elements == null){
             try{
                 element = findElement(locator);
@@ -115,7 +93,7 @@ public class SeleniumOperations extends WaitOperations{
         }
         return actions;
     }
-    public Actions doubleClick(By locator){
+    public Actions doubleClick(String locator){
         try{
             element = findElement(locator);
             actions.doubleClick(element);
@@ -125,7 +103,7 @@ public class SeleniumOperations extends WaitOperations{
         }
         return actions;
     }
-    public Actions dragAndDrop(By sourceLocator, By targetLocator){
+    public Actions dragAndDrop(String sourceLocator, String targetLocator){
         try{
             sourceElement = findElement(sourceLocator);
             targetElement = findElement(targetLocator);
@@ -136,7 +114,7 @@ public class SeleniumOperations extends WaitOperations{
         }
         return actions;
     }
-    public Actions dragAndDropByAxis(By sourceLocator, int xAxis, int yAxis){
+    public Actions dragAndDropByAxis(String sourceLocator, int xAxis, int yAxis){
         try{
             sourceElement = findElement(sourceLocator);
             actions.dragAndDropBy(sourceElement,xAxis,yAxis);
@@ -146,7 +124,7 @@ public class SeleniumOperations extends WaitOperations{
         }
         return actions;
     }
-    public Actions moveToElement(By sourceLocator){
+    public Actions moveToElement(String sourceLocator){
         try{
             sourceElement = findElement(sourceLocator);
             actions.moveToElement(sourceElement);
@@ -156,7 +134,7 @@ public class SeleniumOperations extends WaitOperations{
         }
         return actions;
     }
-    public Actions moveToElementByAxis(By sourceLocator, int xAxis, int yAxis){
+    public Actions moveToElementByAxis(String sourceLocator, int xAxis, int yAxis){
         try{
             sourceElement = findElement(sourceLocator);
             actions.moveToElement(sourceElement,xAxis,yAxis);
@@ -179,12 +157,8 @@ public class SeleniumOperations extends WaitOperations{
         WebDriver driver = new ChromeDriver();
         SeleniumOperations obj = new SeleniumOperations(driver);
         String url = "http://www.tizag.com/htmlT/htmlcheckboxes.php";
-        driver.get(url);
-        obj.findElement(ObjectRepository.checkBox_1__xpath).click();
-        try {
-            driver.manage().timeouts().wait(1000);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        obj.getUrl(url);
+        driver.manage().window().maximize();
+        obj.click(ObjectRepository.checkBox_1);
     }
 }
