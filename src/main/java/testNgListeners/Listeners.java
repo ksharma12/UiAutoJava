@@ -24,6 +24,8 @@ public class Listeners implements ITestListener {
 
     @Override
     public void onTestSkipped(ITestResult iTestResult) {
+        // Reportng requirement to generate html code in reportng report
+        System.setProperty("org.uncommons.reportng.escape-output","false");
         Reporter.log("<a href=\"E:\\v_app\\Observations\\account_creation.png\" target=\"_blank\">ScreenShotLink</a>");
         Reporter.log("<br>");
         Reporter.log("<a href=\"E:\\v_app\\Observations\\account_creation.png\" target=\"_blank\"><img height=200 width=200 src=\"E:\\v_app\\Observations\\account_creation.png\"></a>");

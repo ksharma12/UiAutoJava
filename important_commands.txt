@@ -341,4 +341,8 @@ _([0-9][0-9])$ to _00$1
 _([0-9][0-9][0-9])$ to _0$1
 ------------------------------------------------------------------Reports------------------------------------------------------------------------------
 - TestNg
+  Normal html code can be displayed with no issues in html files
 - ReportNg
+  We need to add extra tag to generate html report with external html code induced
+--------------------------------------------------------------DataProvider-----------------------------------------------------------------------------
+- DataProvider always return 2 dimensional Object type array
