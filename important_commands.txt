@@ -1,0 +1,344 @@
+Interview preparation :- https://www.softwaretestinghelp.com/core-java-interview-questions/
+
+/*
+    Rules for Creation:
+      {class} should be start from capital letter and follow camel casing
+      Name should represent [Nouns]
+      eg: Way2Automation, Animal, Plant, ByIdOrName etc
+
+      {interfaces} should be start from capital letter and follow camel casing
+      Name should represent [Adjectives]
+      eg: Runnable, ActionListener, Serializable
+
+      {methods} should be start from small letter and follow camel casing
+      Name should represent [Verb-Noun]
+      eg: getResult, doCalculation, etc
+
+      {variables} should be start from small letter and follow camel casing
+      Name should represent [small-meaning-words]
+      eg: buttonWidth, accountBalance, myList
+
+      {constants} should be all upper case and _ used to connect them
+      Name should represent [EXIT_ON_CLOSE]
+      eg: EXIT_ON_CLOSE, MIN_HEIGHT, etc
+*/
+
+intendation :- ctrl + alt + I
+
+final keyword :-
+variable - becomes constant
+method - cannot be override
+class - cannot be inherited
+
+       throwable
+       |   |
+      |     |
+     |       |
+    |         |
+   |           |
+ Error        Exception
+                |    |
+               |      |
+              |        |
+             |          |
+          IOExceptions   |
+                         RuntimeExceptions
+
+Access Modifiers :-
+|---------------------------|
+|Public                     |
+||--------------------------|
+||Protected                 |
+||--------------------------|
+|||Default                  |
+|||-------------------------|
+||||Private                 |                        |
+|---------------------------|
+
+Class :-
+Public  - Can be accessed anywhere in java world
+Default - Can be accessed within its own package only
+Protected/Private - classes not exist
+
+Class Member(method/variable) :-
+Public    - Can be accessed anywhere in java world
+Default   - Can be accessed within its own package only
+Protected - Can be accessed within its own package and outside package via inheritance
+Private   - Can be accessed within its own class only
+
+method/constructors
+
+|-----------|---------------|----------------------------|-----------------|--------------------------------|-----------------------------------|-----------------|--------------|
+|Modifier   | Same class    | Outside Class Same Package | Outside Package | Same Package Using Inheritance | Outside Package Using Inheritance | Most Restricted | Most Visible |
+|-----------|---------------|----------------------------|-----------------|--------------------------------|-----------------------------------|-----------------|--------------|
+|Public     | variable yes  |        variable yes        |   variable yes  |          variable yes          |           variable yes            |                 |              |
+|           | method   yes  |        method   yes        |   method   yes  |          method   yes          |           method   yes            |        4        |      1       |
+|           |               |                            |                 |                                |                                   |                 |              |
+|-----------|---------------|----------------------------|-----------------|--------------------------------|-----------------------------------|-----------------|--------------|
+|Protected  | variable yes  |        variable yes        |   variable no   |          variable yes          |           variable yes            |                 |              |
+|           | method   yes  |        method   yes        |   method   no   |          method   yes          |           method   yes            |        3        |      2       |
+|           |               |                            |                 |                                |                                   |                 |              |
+|-----------|---------------|----------------------------|-----------------|--------------------------------|-----------------------------------|-----------------|--------------|
+|Default    | variable yes  |        variable yes        |   variable no   |          variable yes          |           variable no             |                 |              |
+|           | method   yes  |        method   yes        |   method   no   |          method   yes          |           method   no             |        2        |      3       |
+|           |               |                            |                 |                                |                                   |                 |              |
+|-----------|---------------|----------------------------|-----------------|--------------------------------|-----------------------------------|-----------------|--------------|
+|Private    | variable yes  |        variable no         |   variable no   |          variable no           |           variable no             |                 |              |
+|           | method   yes  |        method   no         |   method   no   |          method   no           |           method   no             |        1        |      4       |
+|           |               |                            |                 |                                |                                   |                 |              |
+|-----------|---------------|----------------------------|-----------------|--------------------------------|-----------------------------------|-----------------|--------------|
+
+Inheritance   :- sub_Class is a Parent_Class [is a relationship]
+Polymorphism  :- overloading, overriding
+abstract, interfaces
+Object classes
+Data hiding   :- hiding data from outside world so that it cannot be accessed directly
+abstraction   :- force calling data which is hidden using some methods
+getters and setters
+
+------------------------------------------------------------------------ENCAPSULATION-------------------------------------------------------------------------------
+Encapsulation :- design pattern [data binding / wrapping up data and methods in single unit]
+How to achieve it :-
+1. Always make instance variables private
+2. Always make public accessor methods and force calling them to access instance variables
+3. User Naming conventions setters() and getters() for these methods
+
+Drawbacks of not applying encapsulation:-
+exposed variables which leads to data leak
+
+------------------------------------------------------------------------INHERITANCE-------------------------------------------------------------------------------
+INHERITANCE :-
+class inherit another class         :- extends
+interface inherit another interface :- extends
+class inherit another interface     :- implements
+interface inherit a class           :- N/A
+
+- Single
+- Multiple
+- MultiLevel
+- Hybrid
+- Hierarchical
+
+- Note : If there are same methods in all/some classes which are inherited in hierarchy then closest method would be accessed by the last child
+- an [object of subclass] can be assigned to [parent class instance]
+  A a = new C(); [polymorphic reference]
+         A
+       spark()
+       |   |
+      |     |
+     |       |
+    |         |
+   |           |
+   B              C
+                spark()
+                |    |
+               |      |
+              |        |
+             |          |
+             D          E
+                       spark() from C Called
+                       not from A
+
+Purpose of inheritance :-
+------------------------------------------------------------------------POLYMORPHISM-------------------------------------------------------------------------------
+POLYMORPHISM -
+(action/behaviour)
+same name multiple form :-
+1. Compile Time polymorphism / Early binding / static binding / overloading
+2. Run Time polymorphism / late binding / overriding
+
+OVERLOADING :-
+1. Compile Time polymorphism / Early binding / static binding / overloading :-
+ - Overloading implementation by making the signatures of methods different
+ - we cannot achieve method overloading by keeping method signature same but different return type
+ - main method can also be overloaded
+
+* varargs :- method which can accept variable length of arguments
+ - var args... must always be at the last of the formal parameter list
+ - these arguments come in the form of array
+
+ Ambiguity :- Errors which came at the time of compile [calling overloaded function]
+ Duplicacy :- Errors which occur at the time of defining the overloaded functions
+
+OVERRIDING :-
+different classes (with inheritance applied) we have methods with same signature
+- Overriding is done if the parent is unable to fulfill the requirements of child
+- same method of parent class in child class but overrides the same
+- can we do type change while overriding  - No  [if return types are primitive(byte, char, short, int, long, double, float, boolean)]
+- can we do type change while overriding  - Yes [If return types are class name / covariant]
+  covariant :- the return types are className and there is a parent-child relationship between those classes.
+- method type class should extend the parent class with same method with different return type
+
+Wrapper classes for primitive types :-
+int  -  Integer etc.
+
+Not Using OverRiding DrawBacks :-
+- Repetition of code if same method with different functionality is used.
+-
+  A(parent)-----> B(child)
+  f1(),f2()       f1()
+  static f3()     static f3()
+
+  A obj = new B();
+  obj.f1();
+  obj.f2();
+
+- Can we change the access modifier of when overriding
+  yes , but we cannot reduce the visibility, we can only increase the visibility
+  if A f1() method is public then B f1() method cannot be private/protected/default
+  if A f1() method is private then B f1() method can be private/protected/default/public
+
+- Can we Override static methods ?
+  No, This is called method hiding
+  A obj = new B();
+  obj.f3(); // will call the method from parent class A
+  B obj = new B();
+  obj.f3(); // will call the method from child class B
+
+--------------------------------------------------------------DATA ABSTRACTION AND ABSTRACT CLASS-----------------------------------------------------------------
+Abstract is design pattern in which only functionality is declared but not defined
+Abstract Keyword :- Can be used with classes and methods
+Abstract Keyword with class :- These classes can not be instantiated and these are called abstract classes
+Abstract Keyword with method :- These methods must be overridden in first concrete class
+                                concrete class :- whose instances can be created
+- Abstract A(parent)-----> B(child1)-----
+
+- If we forgot to override a parent class method in child class then incase
+  that method called the functionality of parent class method will be called instead of child
+--------------------------------------------------------------ABSTRACT CLASS--------------------------------------------------------------------------------------
+- Abstract class can have [concrete methods] as well as [abstract methods]
+- Abstract A(parent)-----> B(child)
+  abstract f1(),           mandatory to implement all abstract methods in parent class f1(),f2()...etc in first concrete class
+  abstract f2(),
+  f3()
+- we can only call a method from abstract class with the help of inheritance only
+
+--------------------------------------------------------------INTERFACE-------------------------------------------------------------------------------------------
+- We cannot create an instance of interface
+- We cannot create an abstract class and interface final
+- First concrete child should implement all the methods of interfaces extends themselves
+- multiple inheritance is possible with interfaces :- child class can implement more than 1 interfaces
+- In case a class is inheriting both class and interface then class would first extend "parent class" then implement interface/interfaces
+-------------------------------------------------------------------EXCEL-----------------------------------------------------------------------------------------
+- Creating excel file using POI
+- Create sheet in above excel file
+- Create row in above sheet
+- create cell in above row
+- Use output stream (directory in which our .xls file will get save)
+- Use output stream to (create a file and chain it to previous step)
+- Use 'workbook.writer' to write 'characters' in the file and chain it to the previous steps
+- Close the output stream
+-------------------------------------------------------------------CONSTRUCTORS---------------------------------------------------------------------------------
+- Have same name as of the className
+- They don't have return type , but we can optionally put return type to them
+- They can be private, default, public and protected
+- If a constructor is private we cannot create the object of that class in another class
+- Types of constructors :-
+ - Default Constructor
+   - when no constructor created explicitly then jvm create its own default constructor
+ - Parameterized Constructor
+   - Take Various Parameters at the time of object creation
+ - No-args Constructor
+   - User Defined Constructor
+- Constructor Overloading
+- Calling constructor with in the constructor using this();
+-------------------------------------------------------------------COLLECTION---------------------------------------------------------------------------------
+- Collection is an API/Frameworks  which contains number of [interfaces and classes] :-
+ - Collection (interface)
+ - List (interface)
+ - Queue (interface)
+ - Set (interface)
+ # Drawbacks of Arrays:
+   - The size is fixed
+   - Containing same type of Data
+ - No separate jar file needed for same
+ # Benefits:
+   - The size is not fixed
+   - It can contain multiple type of data
+|-------------------------------------------------------------------------------|
+|     MAPS        |  SETS          |  LISTS      | QUEUES         | UTILITIES   |
+|_______________________________________________________________________________|
+|   HashMap       |  HashSet       |  ArrayList  | PriorityQueues | Collections |
+|_______________________________________________________________________________|
+|   Hashtable     |  LinkedHashSet |  Vector     |                | Arrays      |
+|_______________________________________________________________________________|
+|   TreeMap       |  TreeSet       |  LinkedList |                |             |
+|_______________________________________________________________________________|
+|   LinkedHashMap |                |             |                |             |
+|_______________________________________________________________________________|
+ Utilities :-
+ - Sets, Lists and Queues are interfaces and they have various classes defined in table written up
+ - Utilities have 2 classes Collections and Arrays
+
+# Wrapping / Unwrapping and Autoboxing :-
+  - Wrapper Classes :- THey are those classes used to wrap around primitive data types
+    - Integer
+    - Character
+    - Boolean
+    - Long
+    - Float
+    - Double
+-------------------------------------------------------------------ARRAYLIST---------------------------------------------------------------------------------
+- Order of insertion is preserved in ArrayList, Vector and LinkedList from LISTS.
+
+
+------------------------------------------------Difference Between [==] and [equals()] operator--------------------------------------------------------------
+a == b comparison operator >>>>>> [object reference] and [address] same
+a.equals(b) >>>>>>>>>>>>>>>>>>>>> content is same or not
+------------------------------------------------------------------Singleton Design Pattern------------------------------------------------------------------
+- It has private constructor so that no one can create the object of this class outside this class
+
+------------------------------------------------------------------Java Streams------------------------------------------------------------------------------
+- Input Stream
+- Output Stream
+------------------------------------------------------------------Maven Dependency management Tool/Build Tool------------------------------------------------------------------------------
+- Configuring maven :-
+  - download the zip file with various things
+  - then configure the path in environment variable
+    - open edit environment variable
+    - create new env for MVN_HOME in lower "new"
+    - save the rest part
+- ctrl + shift + O  => (to load mvn dependencies)
+- TestNg:-
+  - groups must remain same in case of dependsOnMethods
+-------------------------------------------------------git--------------------------------------------------------------------------------------------------------
+git commands :
+git init
+git add README.md
+git commit -m "first commit
+git branch -M main
+git remote add origin https://github.com/vedthemaster/tutorial-yt.git
+git push -u origin main
+
+git clone from specific branch :
+git clone --single-branch --branch <branchname> <remote-repo>
+
+git reset - for un_add all added files before commit
+git reset <file> - for un_add particular file
+
+git stash - save the current working image in a stash list with stash@{number}, number = 1,2,3,4,5...
+git stash apply stash@{number} to apply these changes on local working
+
+git conflicts :
+https://stackoverflow.com/questions/161813/how-do-i-resolve-merge-conflicts-in-a-git-repository
+
+after git conflict resolve :
+https://stackoverflow.com/questions/2474097/how-do-i-finish-the-merge-after-resolving-my-merge-conflicts
+
+name of git branch :
+https://stackoverflow.com/questions/6245570/how-do-i-get-the-current-branch-name-in-git
+
+how to fix github error permission denied :
+https://www.youtube.com/watch?v=dxvnbKaszBw&ab_channel=BiggiDroid
+
+mac ==> command + shift + g (to find .ssh key)
+
+Notepad++ regix :-
+105164 25   >>>>>> 105164_0025
+[ ]([0-9]+) to _$1   --do your first replace
+_([0-9])$ to _000$1
+_([0-9][0-9])$ to _00$1
+_([0-9][0-9][0-9])$ to _0$1
+------------------------------------------------------------------Reports------------------------------------------------------------------------------
+- TestNg
+- ReportNg

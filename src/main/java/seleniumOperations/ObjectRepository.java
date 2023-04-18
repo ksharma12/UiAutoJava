@@ -1,3 +1,5 @@
+package seleniumOperations;
+
 import org.openqa.selenium.By;
 
 public class ObjectRepository {

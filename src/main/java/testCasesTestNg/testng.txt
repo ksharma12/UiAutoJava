@@ -1,0 +1,24 @@
+------------------------------------------------------------------Interview--------------------------------------------------------------------------------------
+1. Java       -> arrays, strings and collections and math
+2. Selenium   -> All operations waits , WebDriver, DesiredCapabilities, Headless, ActionClass, Iframes, ShadowDom, CssSelector, WindowHandles
+3. Exceptions -> NoSuchElementException, StaleElementException etc
+4. Locator Techniques
+5. Singleton Class
+6. Parallel Execution with Java
+7. Cucumber Framework Complete
+8. Jenkins
+9. Selenium Grid
+-----------------------------------------------------------------------TestNg--------------------------------------------------------------------------------------
+1. It executes the test cases in alphabetical order
+2. priorities can be assigned to tests
+3. Before/After Test   :- executes after and before execution start of all tests in a class
+4. Before/After Method :- executes after and before execution start of each test in a class
+5. Intendation Command :- Ctrl + Alt + L
+
+--managing multiple test suits------
+
+
+-----------------------------------------------------------------------CucumberBDD---------------------------------------------------------------------------
+Go to the website     - https://www.way2automation.com/
+Navigate to Practice Site 1
+Fill Dummy Registration Form

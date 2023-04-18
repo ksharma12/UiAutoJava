@@ -1,31 +1,32 @@
-import org.openqa.selenium.By;
+package seleniumOperations;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
 
-import java.lang.reflect.Field;
-import java.util.HashMap;
 import java.util.List;
 
 public class SeleniumOperations extends WaitOperations{
-    WebElement element;
-    WebElement sourceElement;
-    WebElement targetElement;
-    List<WebElement> elements;
-    WebDriver driver ;
-    Actions actions;
+    private static WebElement element;
+    private static WebElement sourceElement;
+    private static WebElement targetElement;
+    private static List<WebElement> elements;
+    private static WebDriver driver ;
+    private static Actions actions;
     public SeleniumOperations(WebDriver driver) {
         super(driver);
-        this.driver = driver;
-        this.actions = new Actions(driver);
+        SeleniumOperations.driver = driver;
+        actions = new Actions(driver);
     }
     public void getUrl(String url){
         try{
             driver.get(url);
+            Assert.assertTrue(true,"Navigated to url successfully "+url);
             System.out.println("Successfully get url: "+url);
         }catch (Exception e){
+            Assert.assertFalse(false,"Failed to navigate "+url);
             e.printStackTrace();
         }
     }
