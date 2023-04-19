@@ -153,6 +153,14 @@ public class SeleniumOperations extends WaitOperations{
             e.printStackTrace();
         }
     }
+    public void quitBrowser(){
+        try{
+            driver.quit();
+            System.out.println("Successfully quit browser");
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 
     public static void main(String[] args) {
         WebDriver driver = new ChromeDriver();
@@ -161,5 +169,6 @@ public class SeleniumOperations extends WaitOperations{
         obj.getUrl(url);
         driver.manage().window().maximize();
         obj.click(ObjectRepository.checkBox_1);
+        obj.quitBrowser();
     }
 }
