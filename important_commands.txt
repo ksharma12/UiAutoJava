@@ -298,7 +298,7 @@ a.equals(b) >>>>>>>>>>>>>>>>>>>>> content is same or not
     - open edit environment variable
     - create new env for MVN_HOME in lower "new"
     - save the rest part
-- ctrl + shift + O  => (to load mvn dependencies)
+- ctrl + shift + O  => (to load mvn dependencies) / to load imports
 - TestNg:-
   - groups must remain same in case of dependsOnMethods
 -------------------------------------------------------git--------------------------------------------------------------------------------------------------------
